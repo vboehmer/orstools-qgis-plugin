@@ -14,7 +14,9 @@ class TestUtils(unittest.TestCase):
 
         for name, type_enum, length, precision, comment, subtype_enum in test_cases:
             with self.subTest(name=name, type_enum=type_enum, subtype_enum=subtype_enum):
-                field = create_field_qgis_3_38_plus(name, type_enum, length, precision, comment, subtype_enum)
+                field = create_field_qgis_3_38_plus(
+                    name, type_enum, length, precision, comment, subtype_enum
+                )
                 self.assertEqual(field.name(), name)
                 self.assertEqual(field.length(), length)
                 self.assertEqual(field.precision(), precision)
@@ -31,7 +33,9 @@ class TestUtils(unittest.TestCase):
 
         for name, type_enum, length, precision, comment, subtype_enum in test_cases:
             with self.subTest(name=name, type_enum=type_enum, subtype_enum=subtype_enum):
-                field = create_field_legacy_qgis(name, type_enum, length, precision, comment, subtype_enum)
+                field = create_field_legacy_qgis(
+                    name, type_enum, length, precision, comment, subtype_enum
+                )
                 self.assertEqual(field.name(), name)
                 self.assertEqual(field.length(), length)
                 self.assertEqual(field.precision(), precision)
